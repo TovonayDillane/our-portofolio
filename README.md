@@ -1,4 +1,4 @@
-# ⚙️ DILLANE × IAVO — Portfolio Duo (v1)
+ DILLANE × IAVO — Portfolio Duo (v1)
 
 Moteur de design pour un portfolio duo : dark UI premium, accents néon lapis,
 glassmorphism léger, animations Framer Motion. Voir `demo.html` pour un aperçu
