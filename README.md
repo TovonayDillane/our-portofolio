@@ -1,32 +1,60 @@
-# React + TypeScript + Vite
+# Projet entre pote | PORTFOLIO
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Méthode de travail
+- Chaque personne vont mettre des "commits" bien précis de ce qu'ils ont fait.
+- Je vais crée des branches pour que chaqun push sur une branche qui va être vérifier avant de la mettre dans "main".
+- Faite toujour un pull dans le branch "main" avant de faire un push pour éviter les conflit.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Structure des branches
+- main : personne ne touche au main sauf si le code est vérifier et fonctionnel
+- develop : le code à vérifier
+- fixbug : code qui présente un bug à fixer
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Structure du projets en générale
+src/
+├── assets/                 # Images, icônes, vidéos, fonts
+│   ├── images/
+│   ├── icons/
+│   └── logo/
+│
+├── components/             # Composants réutilisables
+│   ├── common/             # Boutons, Cards, Inputs...
+│   ├── layout/             # Header, Footer, Navbar...
+│   ├── sections/           # Hero, About, Services...
+│   └── ui/                 # Modal, Toast, Tooltip...
+│
+├── pages/                  # Pages
+│   ├── Home.tsx
+│   ├── Services.tsx
+│   ├── Portfolio.tsx
+│   ├── Contact.tsx
+│   ├── About.tsx
+│   └── NotFound.tsx
+│
+├── hooks/                  # Hooks personnalisés
+│
+├── contexts/               # Theme, Lang, Auth...
+│
+├── data/                   # Données statiques
+│   ├── services.ts
+│   ├── projects.ts
+│   └── teams.ts
+│
+├── i18n/                   # Traductions
+│   ├── en.ts
+│   ├── fr.ts
+│   └── mg.ts
+│
+├── types/                  # Interfaces TypeScript
+│
+├── utils/                  # Fonctions utilitaires
+│
+├── styles/
+│   ├── globals.css
+│   ├── variables.css
+│   └── animations.css
+│
+├── App.tsx
+├── main.tsx
+└── vite-env.d.ts
