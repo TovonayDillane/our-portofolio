@@ -12,6 +12,7 @@
 - fixbug : code qui présente un bug à fixer
 
 ## Structure du projets en générale
+```
 src/
 ├── assets/                 # Images, icônes, vidéos, fonts
 │   ├── images/
@@ -58,3 +59,4 @@ src/
 ├── App.tsx
 ├── main.tsx
 └── vite-env.d.ts
+```
