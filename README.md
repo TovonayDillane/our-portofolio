@@ -5,7 +5,6 @@
 - Je vais crée des branches pour que chaqun push sur une branche qui va être vérifier avant de la mettre dans "main".
 - Faite toujour un pull dans le branch "main" avant de faire un push pour éviter les conflit.
 
-
 ## Structure des branches
 - main : personne ne touche au main sauf si le code est vérifier et fonctionnel
 - develop : le code à vérifier
@@ -14,49 +13,36 @@
 ## Structure du projets en générale
 ```
 src/
-├── assets/                 # Images, icônes, vidéos, fonts
-│   ├── images/
-│   ├── icons/
-│   └── logo/
-│
-├── components/             # Composants réutilisables
-│   ├── common/             # Boutons, Cards, Inputs...
-│   ├── layout/             # Header, Footer, Navbar...
-│   ├── sections/           # Hero, About, Services...
-│   └── ui/                 # Modal, Toast, Tooltip...
-│
-├── pages/                  # Pages
-│   ├── Home.tsx
-│   ├── Services.tsx
-│   ├── Portfolio.tsx
-│   ├── Contact.tsx
-│   ├── About.tsx
-│   └── NotFound.tsx
-│
-├── hooks/                  # Hooks personnalisés
-│
-├── contexts/               # Theme, Lang, Auth...
-│
-├── data/                   # Données statiques
-│   ├── services.ts
-│   ├── projects.ts
-│   └── teams.ts
-│
-├── i18n/                   # Traductions
-│   ├── en.ts
-│   ├── fr.ts
-│   └── mg.ts
-│
-├── types/                  # Interfaces TypeScript
-│
-├── utils/                  # Fonctions utilitaires
-│
-├── styles/
-│   ├── globals.css
-│   ├── variables.css
-│   └── animations.css
-│
-├── App.tsx
-├── main.tsx
-└── vite-env.d.ts
+├── assets/          images, icônes, logo (vides pour l'instant, .gitkeep)
+├── components/
+│   ├── common/      Button, Card, SectionHeading — briques de base réutilisées partout
+│   ├── layout/       Header, Footer, Layout (Header+Outlet+Footer)
+│   ├── sections/    Hero, About, Services, Projects, ContactCta, Contact
+│   │                 → Services et Projects acceptent une prop `limit` (aperçu sur Home vs page complète)
+│   └── ui/          Modal, Tooltip, GithubIcon — patterns d'overlay/petits composants
+├── pages/           une page par route, composent les sections ci-dessus
+├── contexts/        ThemeContext (clair/sombre) + LangContext (fr/en/mg)
+│                     le contexte brut est dans *-context.ts séparé du provider *.tsx
+│                     (règle react-refresh : un fichier component = un fichier, un fichier contexte = un autre)
+├── hooks/           useTheme, useLang (consomment les contexts), useDocumentTitle
+├── i18n/            fr.ts / en.ts / mg.ts (clés à plat "nav.home", etc.) + index.ts qui type le tout
+├── data/            services.ts, projects.ts, team.ts, site-config.ts — vos contenus
+├── types/           Service, Project, TeamMember
+└── utils/           cn.ts (fusion de classes Tailwind)
+```
+
+## Démarrer
+
+```bash
+npm install
+npm run dev
+```
+
+Autres commandes utiles :
+
+```bash
+npm run build     # build de prod dans dist/ (vérifie aussi les types)
+npm run preview   # sert le build de prod localement
+npm run lint      # oxlint
+npx prettier --write .   # formatage
 ```
