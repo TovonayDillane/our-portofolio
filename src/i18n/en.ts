@@ -6,7 +6,7 @@ export const en = {
   "nav.contact": "Contact",
 
   "hero.eyebrow": "Web & mobile development",
-  "hero.title": "Two developers, one team. We build solid products.",
+  "hero.title": "More developers, one team. We build solid products.",
   "hero.subtitle":
     "Freelance developers specialized in modern web and mobile apps, from idea to deployment.",
   "hero.ctaPrimary": "See our projects",

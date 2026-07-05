@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Votre Studio", // TODO: remplacez par le nom de votre startup
+  name: "FUTUR-NOM",
   email: "contact@votre-domaine.com", // TODO
   location: "Antananarivo, Madagascar",
   socials: {

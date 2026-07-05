@@ -7,7 +7,7 @@ export const mg = {
   "nav.contact": "Fifandraisana",
 
   "hero.eyebrow": "Famolavolana rindrambaiko web sy finday",
-  "hero.title": "Mpamorona roa, ekipa iray. Manangana vokatra matanjaka izahay.",
+  "hero.title": "Mpamorona maromaro, ekipa iray. Manangana vokatra matanjaka izahay.",
   "hero.subtitle":
     "Freelance manam-pahaizana amin'ny rindrambaiko web sy finday maoderina, hatramin'ny hevitra ka hatramin'ny fampiasana.",
   "hero.ctaPrimary": "Jereo ny tetikasanay",
