@@ -11,6 +11,14 @@
   --color-brand-500: #2563eb;
   --color-brand-600: #1d4ed8;
   --color-brand-700: #1e40af;
+  
+  --duration-fast: 400ms;
+  --duration-normal: 1000ms;
+  --duration-slow: 1500ms;
+  
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 html {
@@ -19,4 +27,287 @@ html {
 
 body {
   font-family: var(--font-sans);
+}
+
+/* ============================================================================
+   MODERN ANIMATIONS - UI/UX Pro Max Style
+   ============================================================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes bounce-smooth {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================================
+   UTILITY ANIMATION CLASSES
+   ============================================================================ */
+
+.animate-fade-in {
+  animation: fadeIn var(--duration-normal) var(--ease-smooth) forwards;
+}
+
+.animate-slide-up {
+  animation: slideInUp var(--duration-normal) var(--ease-smooth) forwards;
+}
+
+.animate-slide-down {
+  animation: slideInDown var(--duration-normal) var(--ease-smooth) forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft var(--duration-normal) var(--ease-smooth) forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight var(--duration-normal) var(--ease-smooth) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-normal) var(--ease-smooth) forwards;
+}
+
+.animate-float {
+  animation: float 15s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 6s var(--ease-smooth) infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 60s linear infinite;
+}
+
+/* ============================================================================
+   GLASSMORPHISM EFFECT (Modern UI Style)
+   ============================================================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================================
+   SMOOTH TRANSITIONS
+   ============================================================================ */
+
+.transition-smooth {
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.transition-fast {
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.transition-slow {
+  transition: all var(--duration-slow) var(--ease-smooth);
+}
+
+/* ============================================================================
+   MODERN SHADOW EFFECTS
+   ============================================================================ */
+
+.shadow-soft {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-soft-lg {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-soft-xl {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+}
+
+.dark .shadow-soft {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.dark .shadow-soft-lg {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.dark .shadow-soft-xl {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+}
+
+/* ============================================================================
+   NEUMORPHISM EFFECT (Soft UI)
+   ============================================================================ */
+
+.neomorphic {
+  background: linear-gradient(135deg, #ffffff, #f3f4f6);
+  box-shadow: 9px 9px 16px #d1d5db, -9px -9px 16px #ffffff;
+  border-radius: 1rem;
+}
+
+.dark .neomorphic {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  box-shadow: 9px 9px 16px #000000, -9px -9px 16px #2d3748;
+}
+
+/* ============================================================================
+   SMOOTH HOVER EFFECTS
+   ============================================================================ */
+
+.hover-lift {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-xl;
+}
+
+.hover-brighten {
+  @apply transition-all duration-300 hover:brightness-110;
+}
+
+/* ============================================================================
+   FOCUS STATES (Accessibility)
+   ============================================================================ */
+
+.focus-ring {
+  @apply transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-950;
+}
+
+.focus-ring-sm {
+  @apply transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-1 dark:focus:ring-offset-slate-950;
+}
+
+/* ============================================================================
+   REDUCED MOTION SUPPORT (Accessibility)
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE IMPROVEMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
 }

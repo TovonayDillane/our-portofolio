@@ -28,10 +28,16 @@ export default function Header() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
+    <header className="sticky top-0 z-40 glass dark:glass-dark">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <NavLink to="/" className="text-lg font-semibold text-slate-900 dark:text-white">
-          {siteConfig.name}
+        <NavLink 
+          to="/" 
+          className="group text-lg font-semibold text-slate-900 dark:text-white transition-smooth"
+        >
+          <span className="relative inline-block">
+            {siteConfig.name}
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+          </span>
         </NavLink>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -42,7 +48,7 @@ export default function Header() {
               end={item.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "text-sm font-medium transition-colors",
+                  "relative text-sm font-medium transition-smooth group",
                   isActive
                     ? "text-slate-900 dark:text-white"
                     : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white",
@@ -50,21 +56,22 @@ export default function Header() {
               }
             >
               {t(item.key)}
+              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-slate-900 dark:bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </NavLink>
           ))}
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
-          <div className="flex items-center gap-1 rounded-full border border-slate-200 p-1 dark:border-slate-800">
+          <div className="flex items-center gap-2 rounded-full glass dark:glass-dark p-1.5">
             {languages.map((l) => (
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
                 className={cn(
-                  "rounded-full px-2.5 py-1 text-xs font-medium transition-colors",
+                  "rounded-full px-3 py-1.5 text-xs font-medium transition-smooth duration-200",
                   lang === l.code
-                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
-                    : "text-slate-500 hover:text-slate-900 dark:hover:text-white",
+                    ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-soft hover:shadow-soft-lg"
+                    : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white",
                 )}
               >
                 {l.label}
@@ -75,53 +82,55 @@ export default function Header() {
             <button
               onClick={toggleTheme}
               aria-label={t("common.toggleTheme")}
-              className="rounded-full border border-slate-200 p-2 text-slate-600 hover:text-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:text-white"
+              className="rounded-full glass dark:glass-dark p-2.5 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:scale-110 active:scale-95 transition-smooth"
             >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </Tooltip>
         </div>
 
         <button
-          className="md:hidden"
+          className="md:hidden transition-smooth hover:scale-110 active:scale-95"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? t("common.closeMenu") : t("common.openMenu")}
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-slate-200 px-6 py-4 md:hidden dark:border-slate-800">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === "/"}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                cn(
-                  "rounded-lg px-3 py-2 text-sm font-medium",
-                  isActive
-                    ? "bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-white"
-                    : "text-slate-600 dark:text-slate-400",
-                )
-              }
-            >
-              {t(item.key)}
-            </NavLink>
-          ))}
-          <div className="mt-3 flex items-center justify-between border-t border-slate-200 pt-3 dark:border-slate-800">
-            <div className="flex gap-1">
+        <nav className="animate-slide-down border-t border-slate-200/50 px-6 py-4 glass dark:border-slate-700/50 dark:glass-dark md:hidden">
+          <div className="flex flex-col gap-2">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/"}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  cn(
+                    "rounded-lg px-4 py-2.5 text-sm font-medium transition-smooth",
+                    isActive
+                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-soft"
+                      : "text-slate-600 hover:bg-slate-100/50 dark:text-slate-400 dark:hover:bg-slate-800/50",
+                  )
+                }
+              >
+                {t(item.key)}
+              </NavLink>
+            ))}
+          </div>
+          <div className="mt-4 flex items-center justify-between border-t border-slate-200/50 pt-4 dark:border-slate-700/50">
+            <div className="flex gap-2">
               {languages.map((l) => (
                 <button
                   key={l.code}
                   onClick={() => setLang(l.code)}
                   className={cn(
-                    "rounded-full px-2.5 py-1 text-xs font-medium",
+                    "rounded-full px-3 py-1.5 text-xs font-medium transition-smooth",
                     lang === l.code
-                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
-                      : "text-slate-500",
+                      ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-soft"
+                      : "text-slate-600 dark:text-slate-400",
                   )}
                 >
                   {l.label}
@@ -131,9 +140,9 @@ export default function Header() {
             <button
               onClick={toggleTheme}
               aria-label={t("common.toggleTheme")}
-              className="text-slate-600 dark:text-slate-300"
+              className="text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-smooth hover:scale-110 active:scale-95"
             >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
         </nav>
